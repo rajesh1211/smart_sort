@@ -23,7 +23,11 @@ describe SmartSort do
   end
 
   describe '#selection_sort' do
-    it { expect(SmartSort.sort([6, 5, 2, 1, 9, 8],'selection_sort')).to eql([1,2,5,6,8,9])}
+    it { expect(SmartSort.sort(@arr,'selection_sort')).to eql(@sorted_arr)}
+  end
+
+  describe '#bubble_sort' do
+    it { expect(SmartSort.sort([6, 5, 2, 1, 9, 8],'bubble_sort')).to eql([1,2,5,6,8,9])}
     it { expect(SmartSort.sort(@arr,'selection_sort')).to eql(@sorted_arr)}
   end
 end
