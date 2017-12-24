@@ -17,4 +17,8 @@ describe SmartSort do
   describe '#merge_sort' do
     it { expect(SmartSort.sort(@arr,'merge_sort')).to eql(@sorted_arr)}
   end
+
+  describe '#insertion_sort' do
+    it { expect(SmartSort.sort(@arr,'insertion_sort')).to eql(@sorted_arr)}
+  end
 end
