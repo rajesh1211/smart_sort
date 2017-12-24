@@ -1,50 +1,43 @@
+require 'byebug'
 class SmartSort::QuickSort
-  def sort(array, from , to)
-    if to == nil
-        # Sort the whole array, by default
-        to = array.count - 1
+  attr_accessor :array
+  def initialize(arr)
+    @array = arr
+  end
+
+  def sort(low , high)
+    _sort(low , high)
+    @array
+  end
+
+  private
+
+  def _sort(low , high)
+    if(low < high)
+      pi = partition(low , high)
+      _sort(low, pi - 1)
+      _sort(pi + 1, high)
     end
+  end
 
-    if from >= to
-        # Done sorting
-        return
+  def partition(low, high)
+    i =  low-1
+    j = low
+    pivot = @array[high]
+    while j <= high-1  do
+      if @array[j] <= pivot
+        i += 1
+        swap(i , j)
+      end
+      j +=1
     end
+    swap(i+1, high)
+    i + 1
+  end
 
-    # Take a pivot value, at the far left
-    pivot = array[from]
-
-    # Min and Max pointers
-    min = from
-    max = to
-
-    # Current free slot
-    free = min
-
-    while min < max
-        if free == min # Evaluate array[max]
-            if array[max] <= pivot # Smaller than pivot, must move
-                array[free] = array[max]
-                min += 1
-                free = max
-            else
-                max -= 1
-            end
-        elsif free == max # Evaluate array[min]
-            if array[min] >= pivot # Bigger than pivot, must move
-                array[free] = array[min]
-                max -= 1
-                free = min
-            else
-                min += 1
-            end
-        else
-            raise "Inconsistent state"
-        end
-    end
-
-    array[free] = pivot
-
-    sort array, from, free - 1
-    sort array, free + 1, to
-  end  
+  def swap(i, j)
+    temp = @array[i]
+    @array[i] = @array[j]
+    @array[j] = temp
+  end
 end
