@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SmartSort do
   it 'has a version number' do
-    expect(SmartSort::VERSION).to eql("1.0.0")
+    expect(SmartSort::VERSION).to eql("1.1.0")
   end
 
   before(:each) do

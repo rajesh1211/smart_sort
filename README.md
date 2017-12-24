@@ -23,7 +23,7 @@ SmartSort.sort([3,5,8,32,2], 'quick_sort')
 will return [2,3,5,8,32]
 
 
-Note: Currently only quick_sort is supported, stay tuned for other algorithm implementations
+Note: Currently only quick_sort, merge_sort, bubble_sort, insertion_sort, selection_sort is supported, stay tuned for other algorithm implementations
 
 ## Development
 
